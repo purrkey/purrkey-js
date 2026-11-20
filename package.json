@@ -1,0 +1,70 @@
+{
+  "name": "@purrkey/sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript SDK for Purrkey: find, price and run 1,100+ pay-per-call data tools for AI agents.",
+  "license": "MIT",
+  "author": "Purrkey (https://purrkey.app)",
+  "homepage": "https://purrkey.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purrkey/purrkey-js.git"
+  },
+  "bugs": "https://github.com/purrkey/purrkey-js/issues",
+  "keywords": [
+    "purrkey",
+    "ai-agents",
+    "mcp",
+    "api",
+    "scraping",
+    "social-media",
+    "sdk"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "check:contract": "node scripts/generate.mjs --check"
+  },
+  "dependencies": {
+    "openapi-fetch": "0.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "openapi-typescript": "7.10.1",
+    "tsup": "8.3.5",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8",
+    "yaml": "2.6.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
