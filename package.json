@@ -1,6 +1,6 @@
 {
   "name": "@purrkey/sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official TypeScript SDK for Purrkey: find, price and run 1,100+ pay-per-call data tools for AI agents.",
   "license": "MIT",
   "author": "Purrkey (https://purrkey.app)",
